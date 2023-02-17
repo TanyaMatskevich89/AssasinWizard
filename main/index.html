@@ -12,8 +12,14 @@
 </head>
 <body>
     <div id="stage-parent">
-        <div id="menu"></div>
-        <div id="container"></div>
+        <div id="menu">
+            <div class ='main_button'>
+                <button id="play" onclick="switchToPlay(), hideMenu()">PLAY</button>
+                <button id="score" onclick="switchToScore()">SCORE</button>
+                <button id="rules" onclick="switchToRules()">RULES</button>
+            </div>
+        </div>
+        <div id="container" class="container_hide"></div>
         <div id="controller">
             <div class="button-right">▲</div>
             <div class="button-left">▲</div>
@@ -29,11 +35,79 @@
         </div>
     </div>
     
-    <script src="../JS/create_player.js"></script>
     <script src="../JS/keyboard.js"></script>
     <script src="../JS/create_enemies.js"></script>
     <script src="../JS/create_health&arrows.js"></script>
     <script src="../JS/adaptive.js"></script>
+    <script src="../JS/create_player.js"></script>
+    <script>
+    'use strict'
+
+        window.onhashchange = switchToStateFromURLHash;
+    
+        var SPAState = {};
+      
+    
+        function switchToStateFromURLHash() {
+            var URLHash = window.location.hash;
+    
+            var stateStr = URLHash.substr(1);
+    
+    
+            var pageHTML = "";
+            switch (stateStr) {
+                case 'Play':
+                     renderMain();
+                    break;
+                case 'Score':
+                    pageHTML += "<h3>О нас</h3>";
+                    pageHTML += "<p>Мы круты!</p>";
+                    break;
+                case 'Rules':
+                    pageHTML += "<h3>TEST</h3>";
+                    pageHTML += "<p>Мы круты!</p>";
+                    break;
+            }
+            // document.getElementById('#stage-parent').innerHTML = pageHTML;
+        }
+    
+    
+        function switchToState(newState) {
+            var stateStr = newState.pagename;
+            location.hash = stateStr;
+        }
+    
+        function switchToPlay() {
+            switchToState({ pagename: 'Play' });
+        }
+    
+        function switchToScore() {
+            switchToState({ pagename: 'Score' });
+        }
+        function switchToRules() {
+            switchToState({ pagename: 'Rules' });
+        }
+    
+        switchToStateFromURLHash();
+    
+    
+        function renderMain(){
+            return (
+                renderConva()
+            )
+            
+        }
+        function hideMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.add('hide');
+            const container = document.getElementById('container')
+            container.classList.add('container_active')
+
+        }
+    </script>
+    
+   
+    
     
 </body>
 </html>

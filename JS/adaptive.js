@@ -1,17 +1,18 @@
-function fitStageIntoParentContainer() {
-    let container = document.querySelector('#stage-parent');
+// function fitStageIntoParentContainer() {
+//     let container = document.querySelector('#stage-parent');
+    
 
     
-    let containerWidth = container.offsetWidth;
+//     let containerWidth = container.offsetWidth;
 
   
-    let scale = containerWidth / canvasWidth;
+//     let scale = containerWidth / canvasWidth;
 
-    stage.width(canvasWidth * scale);
-    stage.height(canvasWidth * scale);
-    stage.scale({ x: scale, y: scale });
-}
+//     stage.width(canvasWidth * scale);
+//     stage.height(canvasWidth * scale);
+//     stage.scale({ x: scale, y: scale });
+// }
 
-fitStageIntoParentContainer();
+// fitStageIntoParentContainer();
 
-window.addEventListener('resize', fitStageIntoParentContainer);
+// window.addEventListener('resize', fitStageIntoParentContainer);

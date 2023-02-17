@@ -1,3 +1,4 @@
+
 const wizardImg = new Image(); 
 wizardImg.src = '../images/wizard.png'; // загрузили изображение врага
 
