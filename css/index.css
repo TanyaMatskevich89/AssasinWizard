@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+#stage-parent {
+    width: 700px;
+    height: 500px;
+    margin: 20px auto;
+}
+
+#menu {
+    background-image: url('../images/assasin.jpg');
+    width: 100%;
+
+}
+
+#container {
+    
+    width: 700px;
+    height: 500px;
+    border: 2px solid black;
+    background: url('../images/background1.png') 0 0 no-repeat ;
+    background-size: cover;
+    
+}
+#dead {
+    display: none;
+    background-image: url('../images/game_over.jpg');
+    width: 700px;
+    height: 500px;
+    background-size: cover;
+    /* width: 100%;
+    height: 100%; */
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+}
+
+h2 {
+    display: inline-block;
+    margin-top: 300px;
+}
+#stage-parent {
+    position: relative;
+}
+
+#controller {
+    display: block;
+}
+
+
+.button-left,
+.button-right,
+.button-up,
+.button-down,
+.button-fire {
+    position: absolute;
+        width: 30px;
+        height: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        opacity: 0.8;
+        border-radius: 40%;
+        font-size: 30px;
+        background: -o-linear-gradient(135deg, #f0a446 0%, #fbe53b 74%);
+        background: linear-gradient(315deg, #f0a446 0%, #fbe53b 74%);
+}
+.button-right {
+    bottom: 5%;
+    left: 53%;
+    transform: rotate(90deg);
+    transform: rotate(90deg);
+    transform: rotate(90deg);
+    padding-bottom: 5px;
+}
+.button-left {
+    bottom: 5%;;
+    left: 43%;
+    transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    padding-bottom: 5px;
+}
+.button-down {
+    bottom: 2%;
+    left: 48%;
+    transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    padding-bottom: 5px;
+
+}
+.button-up {
+    bottom: 10%;
+    left: 48%;
+    transform: rotate(0deg);
+    transform: rotate(0deg);
+    padding-bottom: 5px;
+
+}
+.button-fire {
+    bottom: 5%;
+    left: 60%;
+    transform: rotate(0deg);
+    transform: rotate(0deg);
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+@media all and (max-width: 768px) {
+
+}
+    
