@@ -15,96 +15,43 @@
         <div id="menu">
             <div class ='main_button'>
                 <button id="play" onclick="switchToPlay(), hideMenu()">PLAY</button>
-                <button id="score" onclick="switchToScore()">SCORE</button>
-                <button id="rules" onclick="switchToRules()">RULES</button>
+                <button id="rules" onclick="switchToRules(), showRules()">RULES</button>
             </div>
         </div>
         <div id="container" class="container_hide"></div>
+        <div id="X" class="close" onclick="switchToMain(), hideGame()"><input type="button" id="activate" value="X"></div>
+        <div id="gameRules" class="rules_hide">
+            <button id="return" onclick="hideRules(), switchToMain()">TO MAIN PAGE</button>
+            <div class="keys">
+                <p >The player needs to kill the wizards with arrows.<br>
+                Wizards create lightning that kills the player. <br>
+                The player must collect
+                hearts to replenish health and arrows to kill enemies<br>
+                To move the character, use the keys UP, DOWN, LEFT, RIGHT.<br>
+                To make a strike, use the SPACE button.<br>
+                GOOD LUCK!!</p>     
+            </div>
+        </div>
         <div id="controller">
             <div class="button-right">▲</div>
             <div class="button-left">▲</div>
             <div class="button-up">▲</div>
             <div class="button-down">▲</div>
-            <div class="button-fire">x</div>
-            </div>
         </div>
-        <div id="dead">
-            <h2>You died in battle!<br>
+
+    </div>
+    <div id="dead">
+        <h2>You died in battle!<br>
             Your score: <span id="score"></span><br>
             Press F5 to play again</h2>
-        </div>
     </div>
-    
-    <script src="../JS/keyboard.js"></script>
-    <script src="../JS/create_enemies.js"></script>
-    <script src="../JS/create_health&arrows.js"></script>
-    <script src="../JS/adaptive.js"></script>
     <script src="../JS/create_player.js"></script>
-    <script>
-    'use strict'
-
-        window.onhashchange = switchToStateFromURLHash;
-    
-        var SPAState = {};
-      
-    
-        function switchToStateFromURLHash() {
-            var URLHash = window.location.hash;
-    
-            var stateStr = URLHash.substr(1);
+    <script src="../JS/keyboard.js"></script>
+   
+    <script src="../JS/spa.js"></script>
+   
     
     
-            var pageHTML = "";
-            switch (stateStr) {
-                case 'Play':
-                     renderMain();
-                    break;
-                case 'Score':
-                    pageHTML += "<h3>О нас</h3>";
-                    pageHTML += "<p>Мы круты!</p>";
-                    break;
-                case 'Rules':
-                    pageHTML += "<h3>TEST</h3>";
-                    pageHTML += "<p>Мы круты!</p>";
-                    break;
-            }
-            // document.getElementById('#stage-parent').innerHTML = pageHTML;
-        }
-    
-    
-        function switchToState(newState) {
-            var stateStr = newState.pagename;
-            location.hash = stateStr;
-        }
-    
-        function switchToPlay() {
-            switchToState({ pagename: 'Play' });
-        }
-    
-        function switchToScore() {
-            switchToState({ pagename: 'Score' });
-        }
-        function switchToRules() {
-            switchToState({ pagename: 'Rules' });
-        }
-    
-        switchToStateFromURLHash();
-    
-    
-        function renderMain(){
-            return (
-                renderConva()
-            )
-            
-        }
-        function hideMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.add('hide');
-            const container = document.getElementById('container')
-            container.classList.add('container_active')
-
-        }
-    </script>
     
    
     
