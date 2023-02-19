@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY_GAME</title>
     <link rel="stylesheet" href="../css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="../JS/konva.min.js"></script>
     
 
 </head>
 <body>
+    
     <div id="stage-parent">
+       <audio src="../audio/tmain.mp3" type="audio/mpeg" ></audio>
         <div id="menu">
             <div class ='main_button'>
-                <button id="play" onclick="switchToPlay(), hideMenu()">PLAY</button>
+                <button id="play" onclick="switchToPlay(), hideMenu(), soundGame()">PLAY</button>
                 <button id="rules" onclick="switchToRules(), showRules()">RULES</button>
+                <button id="audio" onclick="switchToVolume(), showVolume()">AUDIO</button>
             </div>
         </div>
         <div id="container" class="container_hide"></div>
@@ -32,13 +36,18 @@
                 GOOD LUCK!!</p>     
             </div>
         </div>
+        <div id="volume" class="volume_hide">
+            <input id="jcp-volume" type="range" min="0" max="10" value="5" step="0.1" />
+            <h4>VOLUME</h4>
+            <button id="back" onclick="hideVolume(),switchToMain()">TO MAIN PAGE</button>
+        </div>
         <div id="controller">
             <div class="button-right">▲</div>
             <div class="button-left">▲</div>
             <div class="button-up">▲</div>
             <div class="button-down">▲</div>
         </div>
-
+       
     </div>
     <div id="dead">
         <h2>You died in battle!<br>
@@ -49,6 +58,7 @@
     <script src="../JS/keyboard.js"></script>
    
     <script src="../JS/spa.js"></script>
+    
    
     
     

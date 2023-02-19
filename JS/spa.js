@@ -28,6 +28,10 @@ function switchToRules() {
     switchToState({ pagename: 'Rules' });
 }
 
+function switchToVolume() {
+    switchToState({ pagename: 'Volume' });
+}
+
 switchToStateFromURLHash();
 
 
@@ -74,5 +78,21 @@ function hideGame() {
     menu.classList.remove('hide')
     const close = document.getElementById('X');
     close.classList.remove('X_active');
+    audioGame.pause()
+
+}
+function showVolume() {
+    const menu = document.getElementById('menu');
+    menu.classList.add('hide');
+    const volume = document.getElementById('volume');
+    volume.classList.add('volume_active')
+}
+function hideVolume() {
+    const volume = document.getElementById('volume');
+    volume.classList.add('volume_hide');
+    volume.classList.remove('volume_active')
+    const menu = document.getElementById('menu');
+    menu.classList.add('active')
+    menu.classList.remove('hide')
 
 }

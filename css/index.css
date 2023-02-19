@@ -34,7 +34,7 @@ body {
     left: 5%;
     top: 50%;
 }
-#play, #score, #rules {
+#play, #audio, #rules {
     width: 200px;
     height: 50px;
     margin-bottom: 20px;
@@ -44,7 +44,7 @@ body {
 #play:hover {
     cursor: pointer;
 }
-#score:hover {
+#audio:hover {
     cursor: pointer;
 }
 #rules:hover {
@@ -56,7 +56,6 @@ body {
 
 
 #container {
-    /* display: none; */
     width: 700px;
     height: 500px;
     border: 2px solid black;
@@ -76,6 +75,13 @@ body {
 }
 
 .rules_active {
+    display: block;
+}
+.volume_hide {
+    display: none
+}
+
+.volume_active {
     display: block;
 }
 
@@ -101,7 +107,7 @@ p {
    display: flex;
   
 }
-#return {
+#return, #back {
     width: 120px;
     height: 25px;
     position: absolute;
@@ -113,6 +119,9 @@ p {
 #return :hover {
     background-color: rgb(42, 41, 41);
 }
+#back:hover {
+    background-color: rgb(42, 41, 41);
+}
 
 #dead {
     display: none;
@@ -120,11 +129,9 @@ p {
     width: 700px;
     height: 500px;
     background-size: cover;
-    /* width: 100%;
-    height: 100%; */
     text-align: center;
     color: white;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 h2 {
@@ -233,4 +240,24 @@ input:hover {
 #score {
     background-color: transparent;
 }
+#jcp-volume {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+  
+}
+h4 {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+
+}
+#volume {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/volume.png);
+    background-size: cover;
+}
+
+
     

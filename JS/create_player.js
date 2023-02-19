@@ -1,7 +1,13 @@
-
-function renderConva() {
-
+const audioGame = new Audio(); // Создаём новый элемент Audio для игры
+function soundGame() {  
+    audioGame.src = '../audio/tmain.mp3'; // Указываем путь к звуку 
+    audioGame.play() // запускаем
+}
+$("#jcp-volume").mousemove(function () {
+    audioGame.volume = parseFloat(this.value / 10);
+});
                                                // 1. СОЗДАНИЕ САМОЙ СЦЕНЫ И ИГРОКА
+function renderConva() {  
 
 const canvasWidth = 700;//размеры сцены
 const canvasHeight = 500;//wразмеры сцены
@@ -19,7 +25,7 @@ let countEnemies = 2; // кол-во врагов на поле
 let hearts = []; // сердце со здоровьем
 let amos = []; // подбираемые стрелы
 
-
+   
 
 // Всё начинается со Stage, который объеденяет в себе пользовательские слои (Layer).
 //Каждый слой(Layer) представляет из себя один canvas элемент на странице и может содержать в себе фигуры, группы фигур или группы групп
@@ -35,6 +41,7 @@ const stage = new Konva.Stage({ //Конструктор сцены. Сцена 
 
 const layer = new Konva.Layer();//создаем слой
 
+    
 // оформление игрока
 animationsPlayer = { /* анимация каждого кадра игрока прописана в координатах по принципу x, y, width, height*/
     idleRight: [
@@ -88,7 +95,7 @@ const player = new Konva.Sprite({ // задаем параметры изобр�
 player.speed = 2; // при движении игрока, координата меняется не на 1px, а на определенную скорость 
 player.sizeX = 50;
 player.sizeY = 50;
-player.arrows = 5;// добавили игроку стрел
+player.arrows = 10;// добавили игроку стрел
 layer.add(player);// добавляем спрайт игрока на игровой слой
 stage.add(layer); // добавляем слой на сцену
 player.start();// запускаем анимацию игрока
@@ -100,18 +107,27 @@ const gameLoop = new Konva.Animation(function (frame) { // бесконечны�
     moveBullet();
     actEnemies();
     simpleText.setAttr('text', 'Молний: ' + lights.length + ", Магов на карте: " + wizards.length + ' Здоровье: ' + Math.floor(health) + ", Стрел: " + player.arrows +", Очки: " + score);
-    getHealth(0,05);;
+    getHealth(0,05);
     checkCollisions();
 }, layer);
 
 gameLoop.start();
 
+function soundShoot() {
+        const audio = new Audio(); // Создаём новый элемент Audio
+        audio.src = '../audio/shoot.mp3'; // Указываем путь к звуку "клика"
+        audio.play() // Автоматически запускаем
+        
+
+    }
 
 function handleInput() { // отлавливание событий нажатия на "игровые" клавиши
 //первым ифом мы проверяем, если игрок уже атакует, то мы запрещаем ему двигаться и выходим из функции по return.
     if (player.attrs.animation == 'attackRight' || player.attrs.animation == 'attackLeft') {
         animationAttack();
+        
         return;
+        
     }
     if (direction == 'left') {
         player.attrs.animation = 'idleLeft';
@@ -158,6 +174,7 @@ function handleInput() { // отлавливание событий нажати
             player.attrs.animation = 'attackRight';
         }
         player.frameIndex(0);
+        soundShoot() 
     }
 }
 
@@ -522,6 +539,7 @@ heartImg.src = '../images/heart.png';
 const arrowImg = new Image();
 arrowImg.src = '../images/arrows.png';
 
+
 function animationAttack() { //по наступлению 3 фрейма анимации мы создаем стрелу.
 
     if (player.frameIndex() >= 2) {
@@ -660,20 +678,28 @@ if (amos.length) {
 }
 }
 
-
-                                                                        // КОНЕЦ ИГРЕ
+                                                                 // КОНЕЦ ИГРЕ
 
     function gameOver() { // функция окончания игры, если проигрыш
         gameLoop.stop();
+        soundGameOver();
+        audioGame.pause() // останавливаем музыку игры
         document.getElementById('score').innerText = score;
         document.getElementById('dead').style.display = "block";
         document.getElementById('stage-parent').style.display = "none";
     }
 
+    function soundGameOver() {// звук молнии для gameOver
+        const audio = new Audio(); // Создаём новый элемент Audio
+        audio.src = '../audio/gameOver.mp3'; // Указываем путь к звуку 
+        audio.play() // запускаем
+
+    }
+
 
    
 
-  
+   
    
 
 }
