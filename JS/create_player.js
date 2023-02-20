@@ -25,7 +25,7 @@ function soundBackButton() {
 function renderConva() {  
 
 const canvasWidth = 700;//размеры сцены
-const canvasHeight = 500;//wразмеры сцены
+const canvasHeight = 500;//размеры сцены
 let direction = 'right'; //переменная понадобится, когда игрок/враг будет двигатся
 let arrowDirection = ''; // направление полета стрелы
 let arrowSpeed = 6; // скорость полета стрелы
