@@ -1,3 +1,5 @@
+                                                // ПОДГОТОВКА АУДИО
+
 const audioGame = new Audio(); // Создаём новый элемент Audio для игры
 function soundGame() {  
     audioGame.src = '../audio/tmain.mp3'; // Указываем путь к звуку 
