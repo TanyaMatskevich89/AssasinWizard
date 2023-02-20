@@ -6,6 +6,21 @@ function soundGame() {
 $("#jcp-volume").mousemove(function () {
     audioGame.volume = parseFloat(this.value / 10);
 });
+
+// звуки кнопок
+const audioButton = new Audio();
+function soundButton() {
+    audioButton.src = '../audio/button.mp3';
+    audioButton.play()
+}
+// звуки кнопок возврата
+const audioBackButton = new Audio();
+function soundBackButton() {
+    audioBackButton.src = '../audio/backButton.mp3';
+    audioBackButton.play()
+}
+
+
                                                // 1. СОЗДАНИЕ САМОЙ СЦЕНЫ И ИГРОКА
 function renderConva() {  
 
@@ -497,7 +512,7 @@ function updateDifficult() { //Функция в зависимости того
         countEnemies = 3;
     }
     if (score > 1000) {
-        countEnemies = 5;
+        countEnemies = 4;
     }
 
     while (wizards.length < countEnemies) {

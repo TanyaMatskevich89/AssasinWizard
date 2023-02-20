@@ -17,15 +17,15 @@
        <audio src="../audio/tmain.mp3" type="audio/mpeg" ></audio>
         <div id="menu">
             <div class ='main_button'>
-                <button id="play" onclick="switchToPlay(), hideMenu(), soundGame()">PLAY</button>
-                <button id="rules" onclick="switchToRules(), showRules()">RULES</button>
-                <button id="audio" onclick="switchToVolume(), showVolume()">AUDIO</button>
+                <button id="play" onclick="switchToPlay(), hideMenu(), soundGame(),  soundButton()">PLAY</button>
+                <button id="rules" onclick="switchToRules(), showRules(),  soundButton()">RULES</button>
+                <button id="audio" onclick="switchToVolume(), showVolume(),  soundButton()">AUDIO</button>
             </div>
         </div>
         <div id="container" class="container_hide"></div>
-        <div id="X" class="close" onclick="switchToMain(), hideGame()"><input type="button" id="activate" value="X"></div>
+        <div id="X" class="close" onclick="switchToMain(), hideGame(),soundBackButton()"><input type="button" id="activate" value="X"></div>
         <div id="gameRules" class="rules_hide">
-            <button id="return" onclick="hideRules(), switchToMain()">TO MAIN PAGE</button>
+            <button id="return" onclick="hideRules(), switchToMain(), soundBackButton()">TO MAIN PAGE</button>
             <div class="keys">
                 <p >The player needs to kill the wizards with arrows.<br>
                 Wizards create lightning that kills the player. <br>
@@ -39,7 +39,7 @@
         <div id="volume" class="volume_hide">
             <input id="jcp-volume" type="range" min="0" max="10" value="5" step="0.1" />
             <h4>VOLUME</h4>
-            <button id="back" onclick="hideVolume(),switchToMain()">TO MAIN PAGE</button>
+            <button id="back" onclick="hideVolume(),switchToMain(),soundBackButton()">TO MAIN PAGE</button>
         </div>
         <div id="controller">
             <div class="button-right">▲</div>
